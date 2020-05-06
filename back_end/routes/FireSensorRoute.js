@@ -32,13 +32,6 @@ router.route('/add').post((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// GET A SINGLE FIRESENSOR
-router.route('/:id').get((req, res) => {
-  FireSensor.findById(req.params.id)
-    .then(sensor => res.json(sensor))
-      .catch(err => res.status(400).json('Error: ' + err));
-});
-
 // UPDATE A FIRESENSOR
 router.route('/update/:id').post((req, res) => {
   FireSensor.findById(req.params.id)
@@ -52,13 +45,6 @@ router.route('/update/:id').post((req, res) => {
         .then(() => res.json('FireSensor Updated..'))
           .catch(err => res.status(400).json('Error: ' + err));
     })
-      .catch(err => res.status(400).json('Error: ' + err));
-});
-
-// DELETE A FIRESENSOR
-router.route('/delete/:id').delete((req, res) => {
-  FireSensor.findByIdAndDelete(req.params.id)
-    .then(() => res.json('FireSensor Deleted..!'))
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
